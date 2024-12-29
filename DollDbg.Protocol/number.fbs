@@ -1,0 +1,74 @@
+include "base.fbs";
+
+namespace P;
+
+// XXX: Using tables instead of structs since struct-in-union is currently not supported on languages other than Python
+// https://github.com/google/flatbuffers/issues/7220
+
+/// 8-bit unsigned integer
+table UInt8 {
+    v: uint8;
+}
+
+/// 16-bit unsigned integer
+table UInt16 {
+    v: uint16;
+}
+
+/// 32-bit unsigned integer
+table UInt32 {
+    v: uint32;
+}
+
+/// 64-bit unsigned integer
+table UInt64 {
+    v: uint64;
+}
+
+/// Underlying struct for 128-bit unsigned integer
+struct UInt128Value {
+    v: [uint64: 2]; // Little-endian
+}
+/// 128-bit unsigned integer (marshalled)
+table UInt128 {
+    v: UInt128Value;
+}
+
+/// 32-bit (single) floating-point number
+table Float32 {
+    v: float32;
+}
+
+/// 64-bit (double) floating-point number
+table Float64 {
+    v: float64;
+}
+
+/// Underlying struct for 80-bit (extended) floating-point number
+struct Float80Value {
+    v: [uint8: 10]; // Little-endian
+}
+/// 80-bit (extended) floating-point number (marshalled)
+table Float80 {
+    v: Float80Value;
+}
+
+/// Union type of a arbitiary number
+union NumberType {
+    I8: UInt8,
+    I16: UInt16,
+    I32: UInt32,
+    I64: UInt64,
+
+    F32: Float32,
+    F64: Float64,
+    F80: Float80,
+
+    V64: UInt64, // Marshalled
+    V128: UInt128, // Marshalled
+}
+/// Represent a number of arbitiary type
+table Number {
+    number: NumberType;
+}
+

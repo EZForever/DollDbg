@@ -1,0 +1,18 @@
+include "base.fbs";
+
+namespace P.Server.V;
+
+table OnlineReq {
+    proc: Proc;
+    return_stub: uint64;
+}
+
+rpc_service RpcService {
+    Online(OnlineReq): Void;
+    Offline(Void): Void;
+}
+enum RpcChannel: uint16 {
+    Online = 0x4f56, // VO
+    Offline = 0x4656, // VF
+}
+

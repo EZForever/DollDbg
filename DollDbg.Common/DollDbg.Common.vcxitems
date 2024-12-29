@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{dc29e3a4-a779-4e6d-92f8-59d4f32979a8}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\dolldbg.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\com.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\ctctype.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\exc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\finally.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\htonx.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\overlapped.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\rpc\comm.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\rpc\exc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\rpc\npipe.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\rpc\overlapped.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\rpc\rpc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\rpc\tcp.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\singleton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\slimevent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\slimtls.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\syserr.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)dolldbg\util\tiostream.h" />
+  </ItemGroup>
+</Project>

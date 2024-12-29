@@ -1,0 +1,108 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>eae7dd08-d5f7-45b2-b1a4-af776c32140d</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>dummy.py</StartupFile>
+    <SearchPath>..\DollDbg.Protocol\build\python</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>DollDbg.Client</Name>
+    <RootNamespace>DollDbg.Client</RootNamespace>
+    <InterpreterId>MSBuild|venv|$(MSBuildProjectFullPath)</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DollDbg\Client\Breakpoint.py" />
+    <Compile Include="DollDbg\Client\Client.py" />
+    <Compile Include="DollDbg\Client\Output.py" />
+    <Compile Include="DollDbg\Client\VictimProxy.py" />
+    <Compile Include="DollDbg\Client\__init__.py" />
+    <Compile Include="DollDbg\GUI\Main.py" />
+    <Compile Include="DollDbg\GUI\_AsyncTk.py" />
+    <Compile Include="DollDbg\GUI\_ExceptionDialog.py" />
+    <Compile Include="DollDbg\GUI\_Fonts.py" />
+    <Compile Include="DollDbg\GUI\_MainWindow.py" />
+    <Compile Include="DollDbg\GUI\_MainWindowPage.py" />
+    <Compile Include="DollDbg\GUI\_ReadonlyText.py" />
+    <Compile Include="DollDbg\GUI\_TextDialog.py" />
+    <Compile Include="DollDbg\GUI\__init__.py" />
+    <Compile Include="DollDbg\GUI\__main__.pyw" />
+    <Compile Include="DollDbg\_Protocol\_CreateWrapper.py" />
+    <Compile Include="DollDbg\_Protocol\__init__.py" />
+    <Compile Include="DollDbg\_P\Base.py" />
+    <Compile Include="DollDbg\_P\Client.py" />
+    <Compile Include="DollDbg\_P\Dummy.py" />
+    <Compile Include="DollDbg\_P\Number.py" />
+    <Compile Include="DollDbg\_P\Server\C.py" />
+    <Compile Include="DollDbg\_P\Server\__init__.py" />
+    <Compile Include="DollDbg\_P\__init__.py" />
+    <Compile Include="DollDbg\_Rpc\Exc.py" />
+    <Compile Include="DollDbg\_Rpc\Interfaces.py" />
+    <Compile Include="DollDbg\_Rpc\NPipe.py" />
+    <Compile Include="DollDbg\_Rpc\Rpc.py" />
+    <Compile Include="DollDbg\_Rpc\Tcp.py" />
+    <Compile Include="DollDbg\_Rpc\_AsyncIO.py" />
+    <Compile Include="DollDbg\_Rpc\_Overlapped.py" />
+    <Compile Include="DollDbg\_Rpc\__init__.py" />
+    <Compile Include="DollDbg\_Util\Exception.py" />
+    <Compile Include="DollDbg\_Util\Overlapped.py" />
+    <Compile Include="DollDbg\_Util\WinTypes.py" />
+    <Compile Include="DollDbg\_Util\__init__.py" />
+    <Compile Include="DollDbg\__init__.py" />
+    <Compile Include="dummy.api.py" />
+    <Compile Include="dummy.py" />
+    <Compile Include="dummy.rpc.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="requirements.txt">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DollDbg.Protocol\DollDbg.Protocol.vcxproj">
+      <Name>DollDbg.Protocol</Name>
+      <Project>{8065926f-574c-43e3-860a-341544157c6e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="venv\">
+      <Id>venv</Id>
+      <Version>3.9</Version>
+      <Description>venv (Python 3.9 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DollDbg\" />
+    <Folder Include="DollDbg\Client\" />
+    <Folder Include="DollDbg\GUI\" />
+    <Folder Include="DollDbg\_Protocol\" />
+    <Folder Include="DollDbg\_P\" />
+    <Folder Include="DollDbg\_P\Server\" />
+    <Folder Include="DollDbg\_Rpc\" />
+    <Folder Include="DollDbg\_Util\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

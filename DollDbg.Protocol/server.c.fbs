@@ -1,0 +1,110 @@
+include "base.fbs";
+include "number.fbs";
+
+namespace P.Server.C;
+
+table OnlineResp {
+    // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#machine-types
+    machine_type: uint16;
+    name: string;
+}
+
+table LaunchReq {
+    cmd: string;
+    arg: string;
+    dir: string;
+}
+
+table VictimsResp {
+    procs: [Proc];
+}
+
+table ProcsReq {
+    prefix: string;
+}
+
+table ProcsResp {
+    procs: [Proc];
+}
+
+table KillReq {
+    pid: uint32;
+    name: string;
+}
+
+table BpSetReq {
+    pid: uint32;
+    va: uint64;
+}
+
+table BpListResp {
+    vas: [uint64];
+}
+
+table BpClearReq {
+    pid: uint32;
+    va: uint64;
+}
+
+table LoadLibReq {
+    pid: uint32;
+    path: string;
+}
+
+table InputReq {
+    pid: uint32;
+    line: string;
+}
+
+table EvalReq {
+    pid: uint32;
+    expr: string;
+}
+
+rpc_service RpcService {
+    Online(Void): OnlineResp;
+    Offline(Void): Void;
+
+    Attach(ProcId): Proc;
+    Launch(LaunchReq): Proc;
+    Victims(Void): VictimsResp;
+    Detach(ProcId): Void;
+
+    Procs(ProcsReq): ProcsResp;
+    Kill(KillReq): Void;
+    //Shell(Void): Void;
+    //ShellIO(Buffer): Void;
+
+    BpSet(BpSetReq): Void;
+    BpList(ProcId): BpListResp;
+    BpClear(BpClearReq): Void;
+    LoadLib(LoadLibReq): VirtualAddr;
+    Input(InputReq): Void;
+    Eval(EvalReq): Number;
+
+    // TODO
+}
+enum RpcChannel: uint16 {
+    Online = 0x4f43, // CO
+    Offline = 0x4643, // CF
+
+    Attach = 0x4143, // CA
+    Launch = 0x4c43, // CL
+    Victims = 0x5643, // CV
+    Detach = 0x4443, // CD
+
+    Procs = 0x5043, // CP
+    Kill = 0x4b43, // CK
+    //Shell = 0x4843, // CH
+    //ShellIO = 0x4f49, // IO
+
+    BpSet = 0x5343, // CS
+    BpList = 0x4943, // CI
+    BpClear = 0x4343, // CC
+    LoadLib = 0x4243, // CB
+    Input = 0x4e43, // CN
+    Eval = 0x4543, // CE
+
+    // TODO
+}
+

@@ -1,0 +1,59 @@
+include "base.fbs";
+include "number.fbs";
+
+namespace P.Client;
+
+table NotifyHookReq {
+    pid: uint32;
+    tid: uint32;
+    va: uint64;
+    is_returning: bool;
+}
+
+enum HookAction: uint16 {
+    Go = 0x4741, // AG
+    BreakOnReturn = 0x4241, // AB
+    Skip = 0x5341, // AS
+}
+
+table NotifyHookResp {
+    action: HookAction = Go;
+    return_value: UInt64;
+    stack_bytes: UInt64;
+}
+
+enum OutputType: uint16 {
+    Normal = 0x4e4f, // ON
+    Error = 0x454f, // OE
+    Warning = 0x574f, // OW
+    Prompt = 0x504f, // OP
+    Debuggee = 0x444f, // OD
+    Status = 0x534f, // OS
+}
+
+table OutputReq {
+    pid: uint32;
+    type: OutputType = Normal;
+    message: string;
+}
+
+table OfflineReq {
+    pid: uint32;
+    code: uint32;
+}
+
+rpc_service RpcService {
+    //Online(ProcId): Void;
+    Offline(OfflineReq): Void;
+    NotifyHook(NotifyHookReq): NotifyHookResp;
+    Output(OutputReq): Void;
+    Shutdown(Void): Void;
+}
+enum RpcChannel: uint16 {
+    //Online = 0x4f63, // cO
+    Offline = 0x4663, // cF
+    NotifyHook = 0x4e63, // cN
+    Output = 0x5563, // cU
+    Shutdown = 0x5363, // cS
+}
+

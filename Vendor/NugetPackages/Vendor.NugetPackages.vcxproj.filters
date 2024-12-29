@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="x86">
+      <UniqueIdentifier>{43dd26aa-e902-41d4-a97e-4afa7081e302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="woa">
+      <UniqueIdentifier>{9f476cdd-13f8-4145-bfa2-80ee1183b89b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arm64">
+      <UniqueIdentifier>{b7ced198-60f1-4aa0-b02e-94b2d35348a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="amd64">
+      <UniqueIdentifier>{40bd3d58-09a1-4d5e-b081-af8d34b54454}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="amd64\dbgcore.dll">
+      <Filter>amd64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="amd64\dbgeng.dll">
+      <Filter>amd64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="amd64\dbghelp.dll">
+      <Filter>amd64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="amd64\dbgmodel.dll">
+      <Filter>amd64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="arm64\dbgcore.dll">
+      <Filter>arm64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="arm64\dbgeng.dll">
+      <Filter>arm64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="arm64\dbghelp.dll">
+      <Filter>arm64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="arm64\dbgmodel.dll">
+      <Filter>arm64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="woa\dbgcore.dll">
+      <Filter>woa</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="woa\dbgeng.dll">
+      <Filter>woa</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="woa\dbghelp.dll">
+      <Filter>woa</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="woa\dbgmodel.dll">
+      <Filter>woa</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x86\dbgcore.dll">
+      <Filter>x86</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x86\dbgeng.dll">
+      <Filter>x86</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x86\dbghelp.dll">
+      <Filter>x86</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x86\dbgmodel.dll">
+      <Filter>x86</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="amd64\symsrv.dll">
+      <Filter>amd64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="arm64\symsrv.dll">
+      <Filter>arm64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="woa\symsrv.dll">
+      <Filter>woa</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x86\symsrv.dll">
+      <Filter>x86</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="amd64\srcsrv.dll">
+      <Filter>amd64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="arm64\srcsrv.dll">
+      <Filter>arm64</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="woa\srcsrv.dll">
+      <Filter>woa</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x86\srcsrv.dll">
+      <Filter>x86</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+</Project>

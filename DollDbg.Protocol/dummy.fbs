@@ -1,0 +1,18 @@
+include "base.fbs";
+
+namespace P.Dummy;
+
+table Dummy {
+    i: short = 1234;
+    s: string;
+}
+
+rpc_service RpcService {
+    Hello(Dummy): Dummy;
+    HelloExc(Dummy): Void;
+}
+enum RpcChannel: uint16 {
+    Hello = 10,
+    HelloExc = 20,
+}
+

@@ -1,0 +1,28 @@
+namespace P;
+
+/// FlatBuffers type for scenarios where data is not required
+table Void {
+    // Empty
+}
+
+/// Binary-safe data blob
+table Buffer {
+    buf: [ubyte];
+}
+
+/// Identify a virtual address in the process
+table VirtualAddr {
+    va: uint64;
+}
+
+/// Identify a running process
+table ProcId {
+    pid: uint32;
+}
+
+/// Represent (not identify) a running process
+table Proc {
+    pid: uint32;
+    name: string;
+}
+

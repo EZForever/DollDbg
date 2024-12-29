@@ -1,0 +1,31 @@
+include "base.fbs";
+
+namespace P.Victim;
+
+table WaitForHookResp {
+    hook: uint64;
+    tid: uint32;
+    is_returning: bool;
+}
+
+table LoadLibReq {
+    path: string;
+}
+
+rpc_service RpcService {
+    Hook(VirtualAddr): Void;
+    Unhook(VirtualAddr): Void;
+    WaitForHook(Void): WaitForHookResp;
+
+    Detach(Void): Void;
+    LoadLib(LoadLibReq): VirtualAddr;
+}
+enum RpcChannel: uint16 {
+    Hook = 0x4876, // vH
+    Unhook = 0x5576, // vU
+    WaitForHook = 0x5776, // vW
+
+    Detach = 0x4476, // vD
+    LoadLib = 0x4c76, // vL
+}
+
